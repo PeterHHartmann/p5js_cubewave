@@ -1,7 +1,7 @@
 let angles = [];
 
 function setup() {
-    createCanvas(1600, 800);
+    createCanvas(400, 400);
     for(let i = 0; i < (width / 10); i++){
         let new_angle = i / 10;
         angles.push(new_angle);
