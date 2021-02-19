@@ -12,17 +12,17 @@ function draw() {
 
     let h_offset = (angle, modifier) => {
         let mapped = map(modifier, 0, 10, 0, 1)
-        return floor(map(sin(angle + mapped), -1, 1, -PI, PI));
+        return floor(map(sin(angle + mapped), -1, 1, 2, 10));
     }
 
     let w_offset = (angle, modifier) => {
         let mapped = map(modifier, 0, 10, 0, 1)
-        return floor(map(sin(angle + mapped), -1, 1, -PI, PI));
+        return floor(map(sin(angle + mapped), -1, 1, 2, 10));
     }
 
     let drawRectangles = (x, y, modifier, cap) => {
-        rect(x, y, w_offset(angle, modifier), h_offset(angle, modifier));
-        rect(-x, y, w_offset(angle, modifier), h_offset(angle, modifier));
+        rect(x, y, h_offset(angle, modifier), h_offset(angle, modifier));
+        rect(-x, y, h_offset(angle, modifier), h_offset(angle, modifier));
         x += 10;
         modifier += 1;
         if(x === cap * 10){
@@ -53,7 +53,7 @@ function draw() {
 
     // (angle > 360) ? angle = 0 : angle + 0.1
 
-    console.log(angle);
+    // console.log(angle);
 
 }
 
