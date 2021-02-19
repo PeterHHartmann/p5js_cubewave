@@ -10,19 +10,19 @@ function draw() {
     rectMode(CENTER);
     fill(255);
 
-    let h = (angle, modifier) => {
-        let mapped = map(modifier, 0, 10, 0, 0.4)
-        return map(sin(angle + mapped), -1, 1, 5, 80);
+    let h_offset = (angle, modifier) => {
+        let mapped = map(modifier, 0, 10, 0, 1)
+        return floor(map(sin(angle + mapped), -1, 1, -PI, PI));
     }
 
-    let w = (angle, modifier) => {
-        let mapped = map(modifier, 0, 10, 0, 0.4)
-        return map(sin(angle + mapped), -1, 1, 5, 80);
+    let w_offset = (angle, modifier) => {
+        let mapped = map(modifier, 0, 10, 0, 1)
+        return floor(map(sin(angle + mapped), -1, 1, -PI, PI));
     }
 
     let drawRectangles = (x, y, modifier, cap) => {
-        rect(x, y, w(angle, modifier), h(angle, modifier));
-        rect(-x, y, w(angle, modifier), h(angle, modifier));
+        rect(x, y, w_offset(angle, modifier), h_offset(angle, modifier));
+        rect(-x, y, w_offset(angle, modifier), h_offset(angle, modifier));
         x += 10;
         modifier += 1;
         if(x === cap * 10){
@@ -45,9 +45,16 @@ function draw() {
 
     }
 
-    drawEvenMoreRectangles(0, 0, 0, 20
-);
+    drawEvenMoreRectangles(0, 0, 0, 20);
+    if(angle >= 360){
+        angle = 0;
+    }
     angle += 0.1;
+
+    // (angle > 360) ? angle = 0 : angle + 0.1
+
+    console.log(angle);
+
 }
 
 // ------------------------------------------
