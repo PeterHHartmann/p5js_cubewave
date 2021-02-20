@@ -36,7 +36,7 @@ function draw() {
             let a2 = angle + offsetY;
             let h = floor(map(sin(a), -1, 1, minD, maxD));
             let nw = floor(map(sin(a2), -1, 1, minD, maxD));
-            fill(map(h + nw, minD * 2, maxD * 2, 20, 255));
+            fill(map(h + nw, minD * 2, maxD * 2, 20, 235));
             rect(x * w, y * w, nw, h);
         }
     }
